@@ -1,48 +1,17 @@
 'use client';
-
-import {
-  Typography,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Chip,
-  Button,
-  Stack,
-} from '@mui/material';
+import {Typography,Grid,Card,CardContent,Chip,Button,Stack,Avatar,} from '@mui/material';
 import { motion } from 'framer-motion';
+import { Project, projects } from './Project';
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  githubLink?: string;
-  liveDemo?: string;
-}
-
-
-const projects: Project[] = [
-  {
-    title: 'Weather App',
-    description: 'A weather forecast app using OpenWeatherMap API.',
-    image: '/projects/weather-app.png',
-    technologies: ['React', 'TypeScript', 'Tailwind'],
-    githubLink: 'https://github.com/user/weather-app',
-    liveDemo: 'https://weather-app-demo.netlify.app',
-  },
-  // می‌تونی پروژه‌های بیشتری اضافه کنی
-];
-
-const Projects = () => {
+const MyProject = () => {
   return (
-    <section style={{ padding: '4rem 2rem', background: '#efc0c0',height:'100vh' }}>
+    <section style={{ padding: '4rem 2rem', background: '#efc0c0', height: '100vh' }}>
       <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6}>
         My Projects
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
-        {projects.map((project, index) => (
+        {projects.map((project: Project, index: number) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -59,11 +28,11 @@ const Projects = () => {
                   boxShadow: 4,
                 }}
               >
-                <CardMedia
-                  component="img"
-                  height="180"
-                  image={project.image}
+                <Avatar
+                  src={project.image}
                   alt={project.title}
+                  sx={{ width: 64, height: 64, mb: 1 }}
+                  variant="rounded"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography variant="h6" gutterBottom>
@@ -109,4 +78,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default MyProject;
