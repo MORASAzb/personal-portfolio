@@ -7,7 +7,7 @@ const Home = () => {
       sx={{
         height: '100%',
         minHeight: 'calc(100vh - 64px - 100px)',
-        bgcolor: '#f6dd91',
+        bgcolor: '#FFE6C9',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

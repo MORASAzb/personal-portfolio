@@ -8,8 +8,8 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        bgcolor: 'background.default',
-        color: 'text.secondary',
+        bgcolor: '#FFA09B',
+        color: '#4f4c4c',
         py: '15px',
         mt: 'auto',
         borderTop: '2px solid',

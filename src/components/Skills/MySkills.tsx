@@ -24,7 +24,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: index % 2 === 0 ? '#ffea8e' : '#db9855',
+        backgroundColor: index % 2 === 0 ? '#FFE6C9' : '#FCC6FF',
         padding: '2rem',
       }}
     >
@@ -33,13 +33,20 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
         style={{ y, width: '100%' }}>
-        <Typography variant="h4" textAlign="center" fontWeight="bold" mb={4}>
+        <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6} color='#6c6c6c'>
           {category.title}
         </Typography>
 
         <Grid container spacing={2} justifyContent="center">
           {category.skills.map((skill: Skill, i: number) => (
-            <Grid item xs={6} sm={4} md={3} key={i}>
+            <Grid item xs={4} sm={4} md={2} key={i}
+              sx={{
+                '@media(min-width:1800px) and (max-width: 2300px)': {
+                  flexBasis: '15%',
+                  maxWidth: '15%',
+                }
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +64,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
                     borderRadius: 3,
                     textAlign: 'center',
                     boxShadow: 3,
-                    bgcolor: '#ffffffee',
+                    bgcolor: index % 2 === 0 ? '#f8d7fa' : '#FFE6C9',
                     transition: 'transform 0.3s',
                     '&:hover': {
                       transform: 'scale(1.05)',

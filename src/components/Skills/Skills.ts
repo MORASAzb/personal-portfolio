@@ -26,6 +26,10 @@ export const skillData = [
             { name: 'Angular', level: 4, image: '../../../public/img/skills/angular-100.png' },
             { name: 'Redux', level: 4, image: '../../../public/img/skills/redux-100.png' },
             { name: 'Axios', level: 4, image: '../../../public/img/skills/axios.png' },
+            { name: 'motion', level: 3, image: '../../../public/img/skills/animating-solidjs-apps-motion-one.png' },
+            { name: 'email.Js', level: 3.25, image: '../../../public/img/skills/emailJs.png' },
+            { name: 'LeafLet', level: 4, image: '../../../public/img/skills/leafletjs_logo_icon_169308.webp' },
+            { name: 'Toastify', level: 4, image: '../../../public/img/skills/toastify.png' },
         ],
     },
     {

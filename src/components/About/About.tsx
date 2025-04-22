@@ -9,7 +9,7 @@ const About = () => {
         height: '100%',
         width: '100%',
         minHeight: 'calc(100vh - 64px - 100px)',
-        bgcolor: '#f6dd91',
+        bgcolor: '#FFC785',
         display: 'flex',
         flexDirection: 'row-reverse',
         justifyContent: 'center',
@@ -29,8 +29,8 @@ const About = () => {
         component='img'
         src="../../../public/img/anime.png"
         sx={{
-          width: 700,
-          height: 700,
+          width: 800,
+          height: 800,
           borderRadius: '30%',
           margin: '40px',
           '@media (max-width:800px)': {
@@ -48,7 +48,7 @@ const About = () => {
       />
       <Box
         sx={{
-          backgroundColor: '#f9f1ca',
+          backgroundColor: '#FFE6C9',
           color: 'text.primary',
           px: { xs: 2, md: 6 },
           py: { xs: 4, md: 8 },
@@ -75,7 +75,7 @@ const About = () => {
         }}
       >
         <Stack spacing={2}>
-          <Typography variant="h5" fontWeight="bold" textAlign="center" gutterBottom>
+          <Typography variant="h5" fontWeight="bold" textAlign="center" gutterBottom color="#6c6c6c">
             My Learning Journey
           </Typography>
           <Typography variant="body1">
@@ -114,7 +114,9 @@ const About = () => {
                 '@media (max-width:600px)': {
                   borderRadius: '10px',
                   fontSize: '12px',
-                }
+                },
+                bgcolor:'#FFA09B',
+                color:'#221e1e',
               }}
             >
               Download My Resume

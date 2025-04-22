@@ -1,79 +1,87 @@
 'use client';
-import {Typography,Grid,Card,CardContent,Chip,Button,Stack,Avatar,} from '@mui/material';
+import { Typography, Grid, Card, CardContent, Chip, Button, Stack, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Project, projects } from './Project';
+import './MyProject.css'
 
 const MyProject = () => {
   return (
-    <section style={{ padding: '4rem 2rem', background: '#efc0c0', height: '100vh' }}>
-      <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6}>
+    <section
+      style={{ padding: '1rem 2rem 4rem 2rem', background: '#FFE6C9', height: '100vh', display: 'flex', flexDirection: 'column', marginBottom: '2rem' }}>
+      <Typography variant="h3" textAlign="center" fontWeight="bold" mb={4} color='#212020'>
         My Projects
       </Typography>
 
-      <Grid container spacing={4} justifyContent="center">
-        {projects.map((project: Project, index: number) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Card
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  borderRadius: 3,
-                  boxShadow: 4,
-                }}
+      <div className='scroll-container'
+        style={{ flex: 1, overflowY: 'auto' }}>
+        <Grid container spacing={4} justifyContent="center">
+          {projects.map((project: Project, index: number) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
               >
-                <Avatar
-                  src={project.image}
-                  alt={project.title}
-                  sx={{ width: 64, height: 64, mb: 1 }}
-                  variant="rounded"
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h6" gutterBottom>
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" mb={2}>
-                    {project.description}
-                  </Typography>
-                  <Stack direction="row" spacing={1} flexWrap="wrap">
-                    {project.technologies.map((tech, i) => (
-                      <Chip key={i} label={tech} size="small" />
-                    ))}
+                <Card
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: 4,
+                    boxShadow: 4,
+                    height: '100%',
+                    minHeight: '300px', 
+                    backgroundColor:'#e6c9e8',
+                    
+                  }}
+                >
+                  <Avatar
+                    src={project.image}
+                    alt={project.title}
+                    sx={{ width: 70, height: 70, m: 1 }}
+                    variant="rounded"
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" gutterBottom>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="body2" mb={2}>
+                      {project.description}
+                    </Typography>
+                    <Stack direction="row" spacing={1} flexWrap="wrap">
+                      {project.technologies.map((tech, i) => (
+                        <Chip key={i} label={tech} size="small" />
+                      ))}
+                    </Stack>
+                  </CardContent>
+                  <Stack direction="row" spacing={1} p={2}>
+                    {project.githubLink && (
+                      <Button
+                        href={project.githubLink}
+                        target="_blank"
+                        size="small"
+                        variant="outlined"
+                      >
+                        GitHub
+                      </Button>
+                    )}
+                    {project.liveDemo && (
+                      <Button
+                        href={project.liveDemo}
+                        target="_blank"
+                        size="small"
+                        variant="contained"
+                      >
+                        Live Demo
+                      </Button>
+                    )}
                   </Stack>
-                </CardContent>
-                <Stack direction="row" spacing={1} p={2}>
-                  {project.githubLink && (
-                    <Button
-                      href={project.githubLink}
-                      target="_blank"
-                      size="small"
-                      variant="outlined"
-                    >
-                      GitHub
-                    </Button>
-                  )}
-                  {project.liveDemo && (
-                    <Button
-                      href={project.liveDemo}
-                      target="_blank"
-                      size="small"
-                      variant="contained"
-                    >
-                      Live Demo
-                    </Button>
-                  )}
-                </Stack>
-              </Card>
-            </motion.div>
-          </Grid>
-        ))}
-      </Grid>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </section>
   );
 };

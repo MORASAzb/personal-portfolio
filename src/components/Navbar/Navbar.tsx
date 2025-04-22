@@ -59,7 +59,7 @@ const Navbar = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" sx={{ bgcolor: 'background.paper', color: 'text.primary' }}>
-        <Toolbar className=" flex justify-between w-full bg-[#edb77a]">
+        <Toolbar className=" flex justify-between w-full bg-[#FFA09B]">
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} className="text-white">
