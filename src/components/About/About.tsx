@@ -27,7 +27,7 @@ const About = () => {
     >
       <Box
         component='img'
-        src="../../../public/img/anime.png"
+        src="../../../img/anime.png"
         sx={{
           width: 800,
           height: 800,

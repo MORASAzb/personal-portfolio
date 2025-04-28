@@ -7,7 +7,7 @@ const Home = () => {
       sx={{
         height: '100%',
         minHeight: 'calc(100vh - 64px - 100px)',
-        bgcolor: (theme) => (theme.palette as any).background.default,
+        bgcolor: (theme) => (theme.palette as any).background.paper,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -70,7 +70,7 @@ const Home = () => {
       </Box>
       <Box
         component="img"
-        src="../../../public/img/photo_2024-04-05_19-30-19.jpg"
+        src="../../../img/photo_2024-04-05_19-30-19.jpg"
         sx={{
           width: 600,
           height: 600,
