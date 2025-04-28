@@ -1,14 +1,13 @@
 import {
-  AppBar, Box, Button, Drawer, Fade, FormControl, Grow, IconButton,
+  AppBar, Box, Button, Drawer, FormControl,  IconButton,
   List, ListItem, ListItemButton, ListItemText, Menu,
-  MenuItem, Slide, Toolbar
+  MenuItem, Toolbar
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import FormatPaintOutlinedIcon from '@mui/icons-material/FormatPaintOutlined';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useThemeMode } from '../../setting/ThemeModeContext';
-import { useTheme } from '@mui/material/styles';
 
 
 const navItems = ['Home', 'About', 'Contact', 'Skills', 'Project'];

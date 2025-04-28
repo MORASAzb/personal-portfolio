@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 import { Box, TextField, Button, Typography, CircularProgress, Stack, } from '@mui/material';
 
 const Contact = () => {
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
