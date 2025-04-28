@@ -40,36 +40,46 @@ const Contact = () => {
       ref={form}
       onSubmit={sendEmail}
       sx={{
-        bgcolor: '#FFE6C9',
+        bgcolor: (theme) => (theme.palette as any).background.paper,
         p: 4,
         borderRadius: 3,
         // maxWidth: '600px',
-        width:'100%',
-        height:'100vh',
+        width: '100%',
+        height: '100vh',
         mx: 'auto',
         boxShadow: 3,
         justifyContent: 'center',
         alignItems: 'center',
-        display:'flex',
-        flexDirection:'column',
-       
+        display: 'flex',
+        flexDirection: 'column',
+
       }}
     >
-      <Typography variant="h5" fontWeight="bold" gutterBottom textAlign="center" color='#6c6c6c' mb={5}>
+      <Typography variant="h5" fontWeight="bold" gutterBottom textAlign="center"  mb={5} sx={{
+      color:(theme) => (theme.palette as any).text.primary
+      }}>
         Send Me a Message
       </Typography>
 
       <Stack spacing={6} width="100%" maxWidth="650px" alignItems="center" >
-        <TextField name="user_name" label="Name" fullWidth required  sx={{maxWidth:'600px',}}/>
-        <TextField name="user_email" label="Email" type="email" fullWidth required   sx={{maxWidth:'600px'}}/>
-        <TextField name="message" label="Message" multiline rows={4} fullWidth required   sx={{maxWidth:'600px'}}/>
+        <TextField name="user_name" label="Name" fullWidth required sx={{ maxWidth: '600px', }} />
+        <TextField name="user_email" label="Email" type="email" fullWidth required sx={{ maxWidth: '600px' }} />
+        <TextField name="message" label="Message" multiline rows={4} fullWidth required sx={{ maxWidth: '600px' }} />
 
         <Box textAlign="center">
           <Button
             variant="contained"
             type="submit"
             disabled={loading || sent}
-            sx={{ px: 6, py: 3, borderRadius:3, textTransform: 'none', fontWeight: 'bold', bgcolor:'#FFA09B', color:"#000", }}
+            sx={{
+              px: 6,
+              py: 3,
+              borderRadius: 3,
+              textTransform: 'none',
+              fontWeight: 'bold',
+              bgcolor: (theme) => (theme.palette as any).primary.main,
+              color:(theme) => (theme.palette as any).text.primary,
+            }}
           >
             {loading ? <CircularProgress size={24} color="inherit" /> : sent ? 'Sent ✅' : 'Send'}
           </Button>

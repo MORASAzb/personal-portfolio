@@ -9,7 +9,7 @@ const About = () => {
         height: '100%',
         width: '100%',
         minHeight: 'calc(100vh - 64px - 100px)',
-        bgcolor: '#FFC785',
+        bgcolor: (theme) => (theme.palette as any).custom.nav,
         display: 'flex',
         flexDirection: 'row-reverse',
         justifyContent: 'center',
@@ -48,7 +48,7 @@ const About = () => {
       />
       <Box
         sx={{
-          backgroundColor: '#FFE6C9',
+          backgroundColor: (theme) => (theme.palette as any).background.paper,
           color: 'text.primary',
           px: { xs: 2, md: 6 },
           py: { xs: 4, md: 8 },
@@ -75,7 +75,10 @@ const About = () => {
         }}
       >
         <Stack spacing={2}>
-          <Typography variant="h5" fontWeight="bold" textAlign="center" gutterBottom color="#6c6c6c">
+          <Typography variant="h5" fontWeight="bold" textAlign="center" gutterBottom 
+          sx={{
+            color:(theme) => (theme.palette as any).text.primary,
+          }}>
             My Learning Journey
           </Typography>
           <Typography variant="body1">
@@ -111,12 +114,12 @@ const About = () => {
                 fontWeight: 'bold',
                 px: 4,
                 py: 1.5,
+                bgcolor:(theme) => (theme.palette as any).primary.main,
+                color:'#ffffff',
                 '@media (max-width:600px)': {
                   borderRadius: '10px',
                   fontSize: '12px',
                 },
-                bgcolor:'#FFA09B',
-                color:'#221e1e',
               }}
             >
               Download My Resume

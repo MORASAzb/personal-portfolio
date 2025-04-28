@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routers from './setting/routers'
 import Navbar from './components/Navbar/Navbar';
-import Loading from './setting/Loading';
+import Loading from '../src/components/Loading/Loading';
 import { ThemeModeProvider } from './setting/ThemeModeContext';
 import Footer from './components/Footer/Footer';
 

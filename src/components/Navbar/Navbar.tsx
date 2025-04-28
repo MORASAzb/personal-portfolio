@@ -1,7 +1,7 @@
 import {
-  AppBar, Box, Button, Drawer, FormControl, IconButton,
+  AppBar, Box, Button, Drawer, Fade, FormControl, Grow, IconButton,
   List, ListItem, ListItemButton, ListItemText, Menu,
-  MenuItem, Toolbar
+  MenuItem, Slide, Toolbar
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import FormatPaintOutlinedIcon from '@mui/icons-material/FormatPaintOutlined';
@@ -18,8 +18,6 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { mode, setMode } = useThemeMode();
-  const theme = useTheme();
-  console.log(theme.palette.mode);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -59,7 +57,7 @@ const Navbar = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" sx={{ bgcolor: 'background.paper', color: 'text.primary' }}>
-        <Toolbar className=" flex justify-between w-full bg-[#FFA09B]">
+        <Toolbar className="flex justify-between w-full "  sx={{bgcolor: (theme) => (theme.palette as any).custom.nav}}>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} className="text-white">
@@ -82,7 +80,11 @@ const Navbar = () => {
             <IconButton onClick={handleClick} color="inherit">
               <FormatPaintOutlinedIcon />
             </IconButton>
-            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose} >
+            <Menu
+             anchorEl={anchorEl} 
+             open={Boolean(anchorEl)} 
+             onClose={handleClose}
+             >
               <MenuItem onClick={() => handleSelect('system')} >System</MenuItem>
               <MenuItem onClick={() => handleSelect('light')} >Light</MenuItem>
               <MenuItem onClick={() => handleSelect('dark')} >Dark</MenuItem>

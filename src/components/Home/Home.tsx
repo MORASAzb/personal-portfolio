@@ -7,7 +7,7 @@ const Home = () => {
       sx={{
         height: '100%',
         minHeight: 'calc(100vh - 64px - 100px)',
-        bgcolor: '#FFE6C9',
+        bgcolor: (theme) => (theme.palette as any).background.default,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -27,10 +27,12 @@ const Home = () => {
         <Typography variant='h2'
           sx={{
             marginBottom: '10px',
+            color:(them)=>(them.palette as any).text.primary,
             '@media (min-width:501px) and (max-width:1000px)': {
               marginBottom: '5px',
               fontSize: '35px',
               fontWeight: 600,
+              
             },
             '@media (min-width:1001px)': {
               fontSize: '50px',

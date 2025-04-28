@@ -1,14 +1,21 @@
 'use client';
-import { Typography, Grid, Card, CardContent, Chip, Button, Stack, Avatar } from '@mui/material';
+import { Typography, Grid, Card, CardContent, Chip, Button, Stack, Avatar, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Project, projects } from './Project';
 import './MyProject.css'
 
 const MyProject = () => {
   return (
-    <section
-      style={{ padding: '1rem 2rem 4rem 2rem', background: '#FFE6C9', height: '100vh', display: 'flex', flexDirection: 'column', marginBottom: '2rem' }}>
-      <Typography variant="h3" textAlign="center" fontWeight="bold" mb={4} color='#212020'>
+    <Box
+      component='section'
+      style={{ padding: '1rem 2rem 4rem 2rem', height: '100vh', display: 'flex', flexDirection: 'column', marginBottom: '2rem' }}
+      sx={{
+        backgroundColor: (theme) => (theme.palette as any).background.paper,
+      }}
+    >
+      <Typography variant="h3" textAlign="center" fontWeight="bold" mb={4} sx={{
+        color: (theme) => (theme.palette as any).text.primary
+      }}>
         My Projects
       </Typography>
 
@@ -30,9 +37,9 @@ const MyProject = () => {
                     borderRadius: 4,
                     boxShadow: 4,
                     height: '100%',
-                    minHeight: '300px', 
-                    backgroundColor:'#e6c9e8',
-                    
+                    minHeight: '300px',
+                    bgcolor: (theme) => (theme.palette as any).custom.nav,
+
                   }}
                 >
                   <Avatar
@@ -61,6 +68,10 @@ const MyProject = () => {
                         target="_blank"
                         size="small"
                         variant="outlined"
+                        sx={{
+                          bgcolor: (theme) => (theme.palette as any).background.paper,
+                          color:(theme) => (theme.palette as any).background.contrastText
+                        }}
                       >
                         GitHub
                       </Button>
@@ -71,6 +82,10 @@ const MyProject = () => {
                         target="_blank"
                         size="small"
                         variant="contained"
+                        sx={{
+                          bgcolor: (theme) => (theme.palette as any).background.paper,
+                          color:(theme) => (theme.palette as any).background.contrastText
+                        }}
                       >
                         Live Demo
                       </Button>
@@ -82,7 +97,7 @@ const MyProject = () => {
           ))}
         </Grid>
       </div>
-    </section>
+    </Box>
   );
 };
 

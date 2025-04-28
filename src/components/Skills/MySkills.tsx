@@ -1,6 +1,6 @@
 'use client';
 import { motion, useScroll, useTransform, MotionValue, } from 'framer-motion';
-import { Typography, Grid, Card, Rating, Avatar, } from '@mui/material';
+import { Typography, Grid, Card, Rating, Avatar, Box, } from '@mui/material';
 import { useRef } from 'react';
 import './Skills.css'
 import { Skill, SkillCategory, skillData } from './Skills'
@@ -16,7 +16,8 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
   const y = useParallax(scrollYProgress, 100);
 
   return (
-    <section
+    <Box
+      component='section'
       ref={ref}
       style={{
         height: '100vh',
@@ -24,8 +25,10 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: index % 2 === 0 ? '#FFE6C9' : '#FCC6FF',
         padding: '2rem',
+      }}
+      sx={{
+        bgcolor:index % 2 === 0 ? (theme) => (theme.palette as any).background.paper : (theme) => (theme.palette as any).custom.accent
       }}
     >
       <motion.div
@@ -33,7 +36,9 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
         style={{ y, width: '100%' }}>
-        <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6} color='#6c6c6c'>
+        <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6} sx={{
+          color:(theme) => (theme.palette as any).text.primary
+        }}>
           {category.title}
         </Typography>
 
@@ -64,7 +69,8 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
                     borderRadius: 3,
                     textAlign: 'center',
                     boxShadow: 3,
-                    bgcolor: index % 2 === 0 ? '#f8d7fa' : '#FFE6C9',
+                    bgcolor:index % 2 === 0 ? (theme) => (theme.palette as any).custom.accent : (theme) => (theme.palette as any).background.paper,
+                    // bgcolor: index % 2 === 0 ? '#f8d7fa' : '#FFE6C9',
                     transition: 'transform 0.3s',
                     '&:hover': {
                       transform: 'scale(1.05)',
@@ -88,7 +94,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
 
         </Grid>
       </motion.div>
-    </section>
+    </Box>
   );
 };
 

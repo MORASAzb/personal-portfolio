@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      color:{
+      colors:{
         nav:'#ac4c39',
       }
     },
