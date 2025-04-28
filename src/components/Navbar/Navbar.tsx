@@ -1,13 +1,9 @@
-import {
-  AppBar, Box, Button, Drawer, FormControl,  IconButton,
-  List, ListItem, ListItemButton, ListItemText, Menu,
-  MenuItem, Toolbar
-} from "@mui/material";
+import {AppBar, Box,Button,Drawer,FormControl,IconButton,List,ListItem,ListItemButton,ListItemText,Menu,MenuItem,Toolbar} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import FormatPaintOutlinedIcon from '@mui/icons-material/FormatPaintOutlined';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useThemeMode } from '../../setting/ThemeModeContext';
+import { useThemeMode } from '../../setting/themeHelpers/themeModeUtils';
 
 
 const navItems = ['Home', 'About', 'Contact', 'Skills', 'Project'];
@@ -16,7 +12,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { mode, setMode } = useThemeMode();
+  const { setMode } = useThemeMode();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

@@ -1,4 +1,3 @@
-// import { PaletteOptions, Palette } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -6,18 +5,11 @@ declare module '@mui/material/styles' {
       accent: string;
       nav: string;
     };
-    background: Palette['background'] & {
-      contrastText: string;
-    };
   }
-
   interface PaletteOptions {
     custom?: {
       accent: string;
       nav: string;
-    };
-    background?: PaletteOptions['background'] & {
-      contrastText?: string;
     };
   }
 }

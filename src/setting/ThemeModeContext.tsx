@@ -1,30 +1,17 @@
-// setting/ThemeModeContext.tsx
-import { createContext, useContext, useEffect, useMemo, useState, ReactNode } from 'react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import { getDesignTokens } from './Them'; 
+// src/setting/ThemeModeContext.tsx
 
-type Mode = 'light' | 'dark' | 'system';
-const ThemeContext = createContext<{
-  mode: Mode;
-  setMode: (mode: Mode) => void;
+import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { getDesignTokens } from './themeHelpers/Them'; 
+import { getSystemTheme } from './themeHelpers/themeModeUtils';  
+
+export const ThemeContext = createContext<{
+  mode: 'light' | 'dark' | 'system';
+  setMode: (mode: 'light' | 'dark' | 'system') => void;
 } | undefined>(undefined);
 
-export const useThemeMode = () => {
-  const context = useContext(ThemeContext);
-  if (!context) throw new Error('useThemeMode must be used within ThemeModeProvider');
-  return context;
-};
-
-const getSystemTheme = (): 'light' | 'dark' => {
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  return 'light';
-};
-
 export const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState<Mode>('light');
+  const [mode, setMode] = useState<'light' | 'dark' | 'system'>('light');
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(getSystemTheme());
 
   useEffect(() => {
@@ -35,7 +22,6 @@ export const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const activeMode = mode === 'system' ? systemTheme : mode;
-
   const theme = useMemo(() => createTheme(getDesignTokens(activeMode)), [activeMode]);
 
   return (
