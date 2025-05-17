@@ -105,7 +105,7 @@ const About = () => {
           <Box textAlign="center" mt={2}>
             <Button
               variant="contained"
-              href="/morasa-resume.pdf"
+              href="/morasa-Resume.pdf"
               download
               startIcon={<DownloadIcon />}
               sx={{

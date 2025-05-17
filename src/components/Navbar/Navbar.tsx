@@ -1,10 +1,10 @@
+
 import {AppBar, Box,Button,Drawer,FormControl,IconButton,List,ListItem,ListItemButton,ListItemText,Menu,MenuItem,Toolbar} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import FormatPaintOutlinedIcon from '@mui/icons-material/FormatPaintOutlined';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useThemeMode } from '../../setting/themeHelpers/themeModeUtils';
-
 
 const navItems = ['Home', 'About', 'Contact', 'Skills', 'Project'];
 
@@ -51,8 +51,10 @@ const Navbar = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
+
       <AppBar component="nav" sx={{ bgcolor: 'background.paper', color: 'text.primary' }}>
         <Toolbar className="flex justify-between w-full "  sx={{bgcolor: (theme) => (theme.palette as any).custom.nav}}>
+          
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} className="text-white">
@@ -71,6 +73,7 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
           </Box>
+          
           <FormControl>
             <IconButton onClick={handleClick} color="inherit">
               <FormatPaintOutlinedIcon />
@@ -85,6 +88,8 @@ const Navbar = () => {
               <MenuItem onClick={() => handleSelect('dark')} >Dark</MenuItem>
             </Menu>
           </FormControl>
+
+          
         </Toolbar>
       </AppBar>
 
@@ -99,6 +104,8 @@ const Navbar = () => {
       >
         {drawer}
       </Drawer>
+
+      
     </Box>
   );
 };

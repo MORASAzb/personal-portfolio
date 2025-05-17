@@ -59,12 +59,13 @@ const Footer = () => {
             <IconButton href="https://linkedin.com/in/morasa-zadbaghersighalani" target="_blank" color="inherit">
               <LinkedInIcon />
             </IconButton>
-            {/* //آیدی مشکل داره */}
             <IconButton href="https://t.me/Morasa_zadbaghersighalni" target="_blank" color="inherit">
               <TelegramIcon />
             </IconButton>
           </Box>
         </Box>
+
+
       </Container>
 
       <Box sx={{

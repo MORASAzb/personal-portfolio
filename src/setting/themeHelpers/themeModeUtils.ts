@@ -1,4 +1,3 @@
-// src/setting/themeHelpers/themeModeUtils.ts
 
 import { useContext } from 'react';
 import { ThemeContext } from '../ThemeModeContext';

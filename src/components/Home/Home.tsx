@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
-
 const Home = () => {
   return (
+  
     <Box
       component='div'
       sx={{
@@ -23,6 +23,7 @@ const Home = () => {
         }
       }}
     >
+
       <Box>
         <Typography variant='h2'
           sx={{
@@ -68,6 +69,7 @@ const Home = () => {
           Here you can see my projects, skills, and ways to contact me.
         </Typography>
       </Box>
+
       <Box
         component="img"
         src="../../../img/photo_2024-04-05_19-30-19.jpg"
@@ -93,6 +95,8 @@ const Home = () => {
           }
         }}
       />
+
+      
     </Box >
   )
 }

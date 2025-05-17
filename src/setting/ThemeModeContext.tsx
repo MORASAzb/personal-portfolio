@@ -1,8 +1,7 @@
-// src/setting/ThemeModeContext.tsx
 
 import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { getDesignTokens } from './themeHelpers/Them'; 
+import { getDesignTokens } from './themeHelpers/Theme'; 
 import { getSystemTheme } from './themeHelpers/themeModeUtils';  
 
 export const ThemeContext = createContext<{
