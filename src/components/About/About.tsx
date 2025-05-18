@@ -22,6 +22,7 @@ const About = () => {
         },
         '@media (min-width:801px) and (max-width:1300px)': {
           flexDirection: 'column',
+          gap:'1rem'
         },
       }}
     >
@@ -40,8 +41,8 @@ const About = () => {
             marginInline: '0'
           },
           '@media (min-width:801px) and (max-width:1300px)': {
-            width: 400,
-            height: 400,
+            width: 300,
+            height: 300,
             marginBlock: '10px',
           }
         }}
@@ -59,15 +60,23 @@ const About = () => {
           textAlign: 'justify',
           lineHeight: 1.8,
           height: 'auto',
-          '@media (max-width:800px)': {
+          '@media (max-width:380px)':{
+            marginBottom:2,
+            height:'80vh',
+            overflowY: 'auto',
+            maxWidth:"90vw"
+          },
+          '@media (min-width:381px) and (max-width:800px)': {
             height: '70vh',
             overflowY: 'auto',
-            width: '80%',
+            maxWidth:"90vw",
             marginBottom: '10px',
           },
           '@media (min-width:801px) and (max-width:1300px)': {
-            marginBlock: '10px',
+            marginBlock: '5px',
             overflowY: 'auto',
+            maxHeight: '60vh',
+            maxWidth:"90vw",
           },
           '@media (min-width:1350px)': {
             marginLeft: '20px',
@@ -75,12 +84,14 @@ const About = () => {
         }}
       >
         <Stack spacing={2}>
+
           <Typography variant="h5" fontWeight="bold" textAlign="center" gutterBottom 
           sx={{
             color:(theme) => (theme.palette as any).text.primary,
           }}>
             My Learning Journey
           </Typography>
+
           <Typography variant="body1">
             My learning journey began with a deep passion for astronomy. However, considering the limited career opportunities for
             women in this field in Iran, I decided to pursue a profession that could offer both creativity and intellectual
@@ -124,6 +135,7 @@ const About = () => {
             >
               Download My Resume
             </Button>
+            
           </Box>
         </Stack>
       </Box>

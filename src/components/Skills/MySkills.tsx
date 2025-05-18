@@ -28,7 +28,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         padding: '2rem',
       }}
       sx={{
-        bgcolor:index % 2 === 0 ? (theme) => (theme.palette as any).background.paper : (theme) => (theme.palette as any).custom.accent
+        bgcolor: index % 2 === 0 ? (theme) => (theme.palette as any).background.paper : (theme) => (theme.palette as any).custom.accent
       }}
     >
       <motion.div
@@ -37,26 +37,41 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         transition={{ duration: 0.6 }}
         style={{ y, width: '100%' }}>
         <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6} sx={{
-          color:(theme) => (theme.palette as any).text.primary
+          color: (theme) => (theme.palette as any).text.primary
         }}>
           {category.title}
         </Typography>
 
         <Grid container spacing={2} justifyContent="center">
           {category.skills.map((skill: Skill, i: number) => (
-            <Grid item xs={4} sm={4} md={2} key={i}
+            <Grid
+              item
+              key={i}
               sx={{
-                '@media(min-width:1800px) and (max-width: 2300px)': {
+                '@media(min-width:300px) and (max-width:600px)': {
+                  flexBasis: '80%',
+                  maxWidth: '20%',
+                },
+                '@media(min-width:600px) and (max-width:900px)': {
+                  flexBasis: '30%',
+                  maxWidth: '20%',
+                },
+                '@media(min-width:900px) and (max-width:1800px)': {
+                  flexBasis: '30%',
+                  maxWidth: '10%',
+                },
+                '@media(min-width:1800px) and (max-width:2300px)': {
                   flexBasis: '15%',
-                  maxWidth: '15%',
-                }
+                  maxWidth: '20%',
+                },
+                flexBasis: '20%',
+                maxWidth: '20%',
               }}
             >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-
+                transition={{ duration: 0.5, delay: i * 0.3 }}
               >
                 <Card
                   sx={{
@@ -69,8 +84,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
                     borderRadius: 3,
                     textAlign: 'center',
                     boxShadow: 3,
-                    bgcolor:index % 2 === 0 ? (theme) => (theme.palette as any).custom.accent : (theme) => (theme.palette as any).background.paper,
-                    // bgcolor: index % 2 === 0 ? '#f8d7fa' : '#FFE6C9',
+                    bgcolor: index % 2 === 0 ? (theme) => (theme.palette as any).custom.accent : (theme) => (theme.palette as any).background.paper,
                     transition: 'transform 0.3s',
                     '&:hover': {
                       transform: 'scale(1.05)',
@@ -80,7 +94,11 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
                   <Avatar
                     src={skill.image}
                     alt={skill.name}
-                    sx={{ width: 64, height: 64, mb: 1 }}
+                    sx={{
+                      width: 64,
+                      height: 64,
+                      mb: 1
+                    }}
                     variant="rounded"
                   />
                   <Typography fontWeight="medium" fontSize="14px">

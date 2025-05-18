@@ -3,6 +3,8 @@ import emailjs from 'emailjs-com';
 import { Box, TextField, Button, Typography, CircularProgress, Stack, } from '@mui/material';
 
 const Contact = () => {
+
+
   const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -34,7 +36,11 @@ const Contact = () => {
       );
   };
 
+
+
   return (
+
+
     <Box
       component="form"
       ref={form}
@@ -43,7 +49,6 @@ const Contact = () => {
         bgcolor: (theme) => (theme.palette as any).background.paper,
         p: 4,
         borderRadius: 3,
-        // maxWidth: '600px',
         width: '100%',
         height: '100vh',
         mx: 'auto',
@@ -55,6 +60,8 @@ const Contact = () => {
 
       }}
     >
+
+
       <Typography variant="h5" fontWeight="bold" gutterBottom textAlign="center"  mb={5} sx={{
       color:(theme) => (theme.palette as any).text.primary
       }}>
@@ -62,11 +69,13 @@ const Contact = () => {
       </Typography>
 
       <Stack spacing={6} width="100%" maxWidth="650px" alignItems="center" >
+
         <TextField name="user_name" label="Name" fullWidth required sx={{ maxWidth: '600px', }} />
         <TextField name="user_email" label="Email" type="email" fullWidth required sx={{ maxWidth: '600px' }} />
         <TextField name="message" label="Message" multiline rows={4} fullWidth required sx={{ maxWidth: '600px' }} />
 
         <Box textAlign="center">
+
           <Button
             variant="contained"
             type="submit"
@@ -83,6 +92,7 @@ const Contact = () => {
           >
             {loading ? <CircularProgress size={24} color="inherit" /> : sent ? 'Sent ✅' : 'Send'}
           </Button>
+          
         </Box>
       </Stack>
     </Box>
