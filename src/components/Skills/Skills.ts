@@ -20,10 +20,15 @@ export const skillData = [
         ],
     },
     {
-        title: 'Frameworks & Libraries',
+        title: 'Frameworks',
         skills: [
             { name: 'React.js', level: 4.5, image: '../../../img/skills/react-js-100.png' },
             { name: 'Angular', level: 4, image: '../../../img/skills/angular-100.png' },
+        ],
+    },
+    {
+        title: ' Libraries',
+        skills: [
             { name: 'Redux', level: 4, image: '../../../img/skills/redux-100.png' },
             { name: 'Axios', level: 4, image: '../../../img/skills/axios.png' },
             { name: 'motion', level: 3, image: '../../../img/skills/animating-solidjs-apps-motion-one.png' },
