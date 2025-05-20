@@ -3,13 +3,19 @@ import { Typography, Grid, Card, Rating, Avatar, Box, } from '@mui/material';
 import { useRef } from 'react';
 import './Skills.css'
 import { Skill, SkillCategory, skillData } from './Skills'
+
+
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
+
 const SkillsSection = ({ category, index }: { category: SkillCategory; index: number }) => {
+  
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'center start'] });
   const y = useParallax(scrollYProgress, 100);
+
+  
   return (
     <Box
       component='section'
@@ -31,11 +37,13 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
         style={{ y, width: '100%' }}>
+          
         <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6} sx={{
           color: (theme) => (theme.palette as any).text.primary
         }}>
           {category.title}
         </Typography>
+        
         <Grid container spacing={2} justifyContent="center">
           {category.skills.map((skill: Skill, i: number) => (
             <Grid
@@ -53,11 +61,13 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
                 },
               }}
             >
+
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
               >
+                
                 <Card
                   sx={{
                     aspectRatio: { xs: category.title.trim() === 'Libraries' ?'1': '4/3', sm: '1/1' },
@@ -114,6 +124,7 @@ const SkillsSection = ({ category, index }: { category: SkillCategory; index: nu
     </Box>
   );
 };
+
 const MySkills = () => {
 
   return (

@@ -1,4 +1,3 @@
-'use client';
 import { Typography, Grid, Card, CardContent, Chip, Button, Stack, Avatar, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Project, projects } from './Project';
@@ -21,15 +20,19 @@ const MyProject = () => {
 
       <div className='scroll-container'
         style={{ flex: 1, overflowY: 'auto' }}>
+          
         <Grid container spacing={4} justifyContent="center">
+          
           {projects.map((project: Project, index: number) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
+              
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
+                
                 <Card
                   sx={{
                     display: 'flex',

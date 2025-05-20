@@ -6,11 +6,8 @@ export type Project = {
   githubLink?: string;
   liveDemo?: string;
 }
-
-
 export const projects: Project[] = [
   {
-
     title: 'Weather App',
     description: 'A modern weather forecast application using OpenWeatherMap API with real-time data and responsive UI.',
     image: '../../../img/project/weather-app-100.png',
@@ -50,9 +47,5 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/MORASAzb/EXCHANGE-CURRENCY.git',
     liveDemo: 'chandan-s.vercel.app',
   },
- 
-  
-
-
 ];
 
